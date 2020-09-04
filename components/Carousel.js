@@ -49,10 +49,15 @@ function carousel(){
 
 
   rightButton.addEventListener('click',event =>{
-   imgOne.src = imgArry[slideIndex + 1]
+    slideIndex = (slideIndex + 1) % imgArry.length
+   imgOne.src = imgArry[slideIndex]
   })
  leftButton.addEventListener('click',event =>{
-  imgOne.src = imgArry[slideIndex - 1]
+  slideIndex -= 1
+  if(slideIndex === -1){
+    slideIndex = imgArry.length - 1
+  }
+  imgOne.src = imgArry[slideIndex]
  })
 
  return carousel
